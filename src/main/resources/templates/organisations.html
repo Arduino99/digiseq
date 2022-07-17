@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<!-- This is for using Thymeleaf -->
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Digiseq Coding Challenge</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</head>
+<body style="max-width: 1200px; margin: 16px auto; padding: 16px">
+
+<div class="row">
+    <div class="col s12">
+        <div class="card blue darken-2 darken-1">
+            <div class="card-content white-text">
+                <h5>Organisations Enabled: <span th:text="${enabled}"> </span></h5>
+            </div>
+        </div>
+    </div>
+</div>
+
+<a th:href="@{showNewOrganisationForm}"
+   class="waves-effect waves-light blue darken-2 btn">
+    <i class="material-icons left">add</i>
+    Add new organisation
+</a>
+<div align="center" style="margin-top: 20px">
+    <table class="responsive-table highlight centered">
+        <thead>
+        <tr>
+            <th>Organisation</th>
+            <th>Registration Date</th>
+            <th>Expiry Date</th>
+            <th>Enabled</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="organisation: ${listOrganisations}">
+            <td th:text="${organisation.name}"></td>
+            <td th:text="${#dates.format(organisation.registration_date, 'dd-MM-yyyy')}"></td>
+
+            <td th:if="${organisation.expiry_date.before(#dates.createNow())}"
+                th:text="${#dates.format(organisation.expiry_date, 'dd-MM-yyyy')}"style="color: orange"/>
+
+            <td th:if="${organisation.expiry_date.after(#dates.createNow())}"
+                th:text="${#dates.format(organisation.expiry_date, 'dd-MM-yyyy')}"style="color: black"/>
+
+            <td th:switch=="${organisation.enabled}">
+                <span th:case="true" style="color: green">true</span>
+                <span th:case="false" style="color: red">false</span>
+            </td>
+            <td>
+                <a th:href="@{updateOrganisation/{id}(id=${organisation.id})}"
+                   class="waves-effect waves-light blue btn">
+                    <i class="material-icons left">create</i>
+                    Update
+                </a>
+                <a th:href="@{deleteOrganisation/{id}(id=${organisation.id})}"
+                   class="waves-effect waves-light btn red litghten-2">
+                    <i class="material-icons left">highlight_off</i>
+                    Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <a th:href="@{/}" class="waves-effect waves-light blue darken-2 btn-large" style="margin-top: 3em">
+        <i class="material-icons left">group</i>
+        Employee List
+    </a>
+</div>
+</body>
+</html>

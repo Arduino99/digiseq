@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!-- This is for using Thymeleaf -->
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Digiseq Coding Challenge</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</head>
+<body style="max-width: 960px; margin: 16px auto; padding: 16px">
+<h3>Add New Organisation</h3>
+
+<form th:action="@{saveOrganisation}" th:object="${organisation}" method="post">
+    <div class="row">
+        <input type="hidden" id="id" th:field="*{id}">
+        <div class="input-field col s6">
+            <input id="name" type="text" class="validate" th:field="*{name}"> <label for="name">Name</label>
+        </div>
+        <div class="input-field col s6">
+            <input id="registration_date" type="text" class="validate" th:field="*{registration_date}">
+            <label for="registration_date">Registration</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s6">
+            <input id="expiry_date" type="text" class="validate" th:field="*{expiry_date}">
+            <label for="expiry_date">Expiry Date</label>
+        </div>
+        <div class="input-field col s6">
+            <input id="enabled" type="text" class="validate" th:field="*{enabled}">
+            <label for="enabled">Enabled</label>
+        </div>
+    </div>
+    <button type="submit" class="waves-effect waves-light btn blue darken-2">
+        <i class="material-icons left">add_circle_outline</i>
+        Add Organisation</button>
+</form>
+<br>
+<a th:href="@{/organisations/}" class="blue-text">
+    <i class="material-icons left">arrow_back</i>
+    Back
+</a>
+</body>
+</html>

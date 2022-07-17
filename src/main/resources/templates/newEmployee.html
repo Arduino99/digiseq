@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<!-- This is for using Thymeleaf -->
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Digiseq Coding Challenge</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</head>
+<body style="max-width: 960px; margin: 16px auto; padding: 16px">
+<h3>Add New Employee</h3>
+<form th:action="@{/saveEmployee}" th:object="${employee}" method="post">
+  <div class="row">
+    <input type="hidden" id="id"
+           th:field="*{id}">
+    <div class="input-field col s6">
+      <input id="first_name" type="text" class="validate" th:field="*{firstName}"> <label for="first_name">First Name</label>
+    </div>
+    <div class="input-field col s6">
+      <input id="last_name" type="text" class="validate" th:field="*{lastName}"> <label for="last_name">Last Name</label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field col s6">
+      <input id="username" type="text" class="validate" th:field="*{username}">
+      <label for="username">Username</label>
+    </div>
+    <div class="input-field col s6">
+      <input id="password" type="text" class="validate" th:field="*{password}">
+      <label for="password">Password</label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field col s6">
+      <input id="email" type="email" class="validate" th:field="*{email}">
+      <label for="email">Email</label>
+    </div>
+    <div class="input-field col s6">
+      <input id="telephone" type="text" class="validate" data-length="10" th:field="*{telephone}">
+      <label for="telephone">Telephone</label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field col s6">
+      <input id="organisation" type="text" class="validate" th:field="*{organisation}">
+      <label for="organisation">Organisation ID</label>
+    </div>
+  </div>
+  <button type="submit" class="waves-effect waves-light btn blue darken-2">
+    <i class="material-icons left">add_circle_outline</i>
+    Add Employee
+  </button>
+</form>
+<br>
+
+<a th:href="@{/}" class="blue-text">
+  <i class="material-icons left">arrow_back</i>
+  Back
+</a>
+
+</body>
+</html>

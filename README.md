@@ -24,7 +24,11 @@ specification). You can easily verify that looking into the mySQL table that wil
 <img width="1053" alt="Screenshot 2022-07-18 at 00 13 30" src="https://user-images.githubusercontent.com/43646408/179429700-6f1975be-0eff-4614-b717-e99e29815839.png">
 
 There's also a hidden view that allows us to view the employees belonging to a specific organisation, we can access it at the following URL
-http://localhost:8080/getEmployeesByOrganisation/{id}, where {id} is, the id of the organisation we are referring to. 
+http://localhost:8080/getEmployeesByOrganisation/{id}, where {id} is, the id of the organisation we are referring to. (In this case we are displaying all 
+the employees that do have an association witht the Organisation 'Microsoft').
+
+<img width="1268" alt="Screenshot 2022-07-18 at 00 19 37" src="https://user-images.githubusercontent.com/43646408/179430385-2913b8d0-f277-4e9c-b918-d36f829a9055.png">
+
 
 Heading to the organisations view, we can see that a counter indicates the number of organisation currently active. We see a similar button to add a new 
 organisation and two more buttons for each record that allows us to edit or delete a record. When editing the date please bear in mind that the month comes 

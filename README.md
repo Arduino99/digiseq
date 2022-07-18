@@ -1,6 +1,7 @@
 # Coding Task for Digiseq
 
 • The backend of the Application has been developed in Java 11 and Spring Boot
+
 • The frontend has been developed with Thymeleaf, which allowed me to include the views in the same project simplifying the delivery
 
 

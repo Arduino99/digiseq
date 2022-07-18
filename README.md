@@ -8,7 +8,7 @@
 Please also check that the schema (digiseq) do not alter any schema with the same name that might be already present in your mysql database instance, 
 as upon creation all the tables will get dropped and recreated.
 
-The Application has been modeled based on the following database diagram. I decided to change the table name from 'personnel' for sake of clarity, 
+The Application has been modeled based on the following database diagram. I decided to change the table name from 'personnel' to 'employees' for sake of clarity, 
 as it can be both singular and plural leading to confusion. Worth to mention that a one-to-many relationship has also been modeled accordingly,
 where one organisation might have one or more employees associated. 
 <img width="1113" alt="Screenshot 2022-07-12 at 09 50 53" src="https://user-images.githubusercontent.com/43646408/179429429-fb625eb0-9f75-4628-ae75-ef03ee0d4bb2.png">

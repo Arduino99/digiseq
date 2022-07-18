@@ -40,7 +40,7 @@ The organisations that are about to expire and are in the 7-days window frame wi
 <img width="1268" alt="Screenshot 2022-07-18 at 00 25 51" src="https://user-images.githubusercontent.com/43646408/179430010-2c4bd9d6-7b1e-485b-a8e5-6d2599f8631d.png">
 
 Once we reach the expiration date, the records will be disabled. The method that handle that is located in the OrganisationController, it's currently scheduled to run 
-every minute, but for performance reasons in productions should run no more than once every 12h (I also included an uncommented annotation for that).
+every minute, but for performance reasons in productions should run no more than once every 12h (I also included an commented annotation for that).
 
 We can try editing an expired record to 'true' on enabled, and after refreshing the page the method will eventually revert it back to 'false'.
 
